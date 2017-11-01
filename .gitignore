@@ -33,3 +33,4 @@ data/
 
 # OS Specific
 .DS_Store
+/bin/

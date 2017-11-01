@@ -1,5 +1,5 @@
-com/sample/camel/config/SampleCamelApplication.class
-com/sample/camel/config/BeanListFactory.class
+com/sample/camel/SampleCamelApplication.class
+com/sample/camel/model/BeanListFactory.class
 com/sample/camel/process/SampleBean.class
 com/sample/camel/model/User.class
 com/sample/camel/route/SampleCamelRouter.class

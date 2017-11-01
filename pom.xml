@@ -24,9 +24,8 @@
     <groupId>org.apache.camel.example</groupId>
     <version>2.21.0-SNAPSHOT</version>
 
-  <artifactId>camel-example-spring-boot</artifactId>
-  <name>Camel :: Example :: Spring Boot</name>
-  <description>An example showing how to work with Camel and Spring Boot</description>
+  <artifactId>camel-example-dynamicbean-recipientlist</artifactId>
+  <name>Camel :: Example :: Spring Boot :: Dyanamic Bean and Recipient List</name>
  
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

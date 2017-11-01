@@ -12,6 +12,9 @@ public class User {
 		this.lastName = lastName;
 		this.favoriteNumber = favoriteNumber;
 	}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getFirstName() {
 		return firstName;
 	}

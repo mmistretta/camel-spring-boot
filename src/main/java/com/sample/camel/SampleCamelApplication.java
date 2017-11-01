@@ -14,10 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.sample.camel.config;
+package com.sample.camel;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -25,20 +26,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.PostConstruct;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-
+import com.sample.camel.model.BeanListFactory;
 import com.sample.camel.model.User;
-
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 //CHECKSTYLE:OFF
 /**
  * A sample Spring Boot application that starts the Camel routes.
  */
 @SpringBootApplication
 @Configuration
-@ComponentScan
+@ComponentScan("com.sample.camel")
 public class SampleCamelApplication {
+	
+	 @Autowired
+	 private ConfigurableBeanFactory beanFactory;
 
     /**
      * A main method to start this application.
@@ -47,6 +51,7 @@ public class SampleCamelApplication {
         SpringApplication.run(SampleCamelApplication.class, args);
     }
     
+    //this creates all the user objects
     @Bean
     public BeanListFactory userFactory() throws Exception{
     	BeanListFactory blf = new BeanListFactory();
@@ -62,6 +67,16 @@ public class SampleCamelApplication {
     	}
     	blf.setProperties(properties);
     	return blf;
+    }
+    
+    //adds all user beans to registry
+    @PostConstruct
+    public void registerUsers() throws Exception{
+    	List l = userFactory().getObject();
+    	for(int i = 0; i< l.size(); i++){
+    		User u = (User)l.get(i);
+    		beanFactory.registerSingleton("user"+i, u);
+    	}
     }
 
 }

@@ -1,4 +1,4 @@
-package com.sample.camel.config;
+package com.sample.camel.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

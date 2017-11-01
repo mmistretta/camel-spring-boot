@@ -16,25 +16,50 @@
  */
 package com.sample.camel.route;
 
+import java.beans.PropertyDescriptor;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.sample.camel.process.SampleBean;
 
 /**
  * A simple Camel route that triggers from a timer and calls a bean and prints to system out.
  * <p/>
  * Use <tt>@Component</tt> to make Camel auto detect this route when starting.
  */
+
 @Component
 public class SampleCamelRouter extends RouteBuilder {
+	
+	@Autowired
+	private SampleBean myBean;
 
     @Override
     public void configure() throws Exception {
-        from("timer:hello?period={{timer.period}}").routeId("hello")
-                .transform().method("myBean", "saySomething")
-                .filter(simple("${body} contains 'foo'"))
-                    .to("log:foo")
-                .end()
-                .to("stream:out");
+        from("timer:hello?period={{timer.period}}")
+        	.routeId("hello")
+        	.bean(myBean, "sampleMethod")
+        	.recipientList(header("sendTo"));
+        
+        //To show receiving of messages
+        from("direct:Joe-Doe")
+        	.log("In direct:Joe-Doe")
+        	.to("stream:out");
+        
+        from("direct:Jane-Doe")
+        	.log("In direct:Jane-Doe")
+        	.to("stream:out");
+        
+        from("direct:Bob-Smith")
+        	.log("In direct:Bob-Smith")
+            .to("stream:out");
     }
 
 }

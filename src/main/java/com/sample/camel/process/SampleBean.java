@@ -16,8 +16,14 @@
  */
 package com.sample.camel.process;
 
-import org.springframework.beans.factory.annotation.Value;
+import java.util.Random;
+import org.apache.camel.spi.Registry;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
+import com.sample.camel.model.User;
 
 /**
  * A bean that returns a message when you call the {@link #saySomething()} method.
@@ -28,11 +34,19 @@ import org.springframework.stereotype.Component;
 @Component("myBean")
 public class SampleBean {
 
-    @Value("${greeting}")
-    private String say;
+    @Autowired
+	CamelContext cc;
 
-    public String saySomething() {
-        return say;
+    public void sampleMethod(Exchange exchange) {
+    	Message m = exchange.getIn();
+    	//represents requests from various applications
+    	Random r = new Random();
+    	Integer i = r.nextInt(3);
+    	//look up cooresponding bean and set header
+    	Registry registry = cc.getRegistry(); 
+    	User user = (User)registry.lookupByName("user" + i);
+    	m.setHeader("sendTo", "direct:"+user.getFirstName()+"-"+ user.getLastName());
+    	m.setBody(user.toString(),String.class);
     }
 
 }
