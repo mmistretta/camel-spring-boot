@@ -33,8 +33,7 @@ public class SampleCamelRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         restConfiguration()
-    		.component("jetty")
-    		.port(9000)
+        	.component("servlet")
     		.bindingMode(RestBindingMode.json);
     
         rest().get("/hello")
