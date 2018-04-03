@@ -37,9 +37,11 @@ public class SampleCamelRouter extends RouteBuilder {
     		.bindingMode(RestBindingMode.json);
     
         rest().get("/hello")
+        	.route().routeId("get-hello")
     		.to("direct:hello");
         
         from("direct:hello")
+        	.routeId("log-hello")
         	.log(LoggingLevel.INFO, "Hello World")
         	.transform().simple("Hello World");
 
