@@ -1,0 +1,7 @@
+<?xml version='1.0'?>
+<!DOCTYPE PZMAP SYSTEM
+	"flatpack.dtd" >
+<PZMAP>
+    <COLUMN name="FIRSTWORD" length="35" />
+    <COLUMN name="SECONDWORD" length="35" />
+</PZMAP> 

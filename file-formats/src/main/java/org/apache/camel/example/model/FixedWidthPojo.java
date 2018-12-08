@@ -1,13 +1,9 @@
 package org.apache.camel.example.model;
-import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
-import org.apache.camel.dataformat.bindy.annotation.DataField;
 
-@CsvRecord(separator = ",")
-public class JsonPojo {
-	
-    @DataField(pos = 1)
+public class FixedWidthPojo {
+
 	private String firstWord;
-    @DataField(pos = 2)
+
 	private String secondWord;
     
 	public String getFirstWord() {
@@ -24,7 +20,7 @@ public class JsonPojo {
 	}
 	@Override
 	public String toString() {
-		return "JsonPojo [firstWord=" + firstWord + ", secondWord=" + secondWord + "]";
+		return "FixedWidthPojo [firstWord=" + firstWord + ", secondWord=" + secondWord + "]";
 	}
 
 }
