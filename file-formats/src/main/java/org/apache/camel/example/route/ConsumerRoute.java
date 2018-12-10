@@ -17,10 +17,10 @@ public class ConsumerRoute extends RouteBuilder {
         from("file:/Users/marycochran/git/camel-spring-boot/file-formats/src/main/resources/csv/")
         	.routeId("consumer1")
         	.convertBodyTo(String.class)
+        	.log(LoggingLevel.INFO, "Received message body: ${body}")
         	.split().tokenize("\r\n|\n").streaming().parallelProcessing()
         	.unmarshal(csvToPojo)
-        	.convertBodyTo(String.class)
-        	.log(LoggingLevel.INFO, "************ Message Body is now: ${body}");
+        	.to("direct:processRecord");
     }
 
 }
