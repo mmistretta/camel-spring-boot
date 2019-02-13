@@ -42,8 +42,8 @@ public class SampleCamelRouter extends RouteBuilder {
         
         from("direct:hello")
         	.routeId("log-hello")
-        	.log(LoggingLevel.INFO, "Hello World")
-        	.transform().simple("Hello World");
+        	.log(LoggingLevel.INFO, "Goodbye World")
+        	.transform().simple("Goodbye World");
 
     }
 

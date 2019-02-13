@@ -1,0 +1,13 @@
+{
+        "auths": {
+                "https://registry.redhat.io": {
+                        "auth": "cmhuLWdwcy1tY29jaHJhbjpNb25rZXkwNzEzIQ=="
+                },
+                "registry.connect.redhat.com": {
+                        "auth": "b3BlbnNoaWZ0LWVudGVycHJpc2U6RWdOVnVpc1FNSGNk"
+                },
+                "registry.redhat.io": {
+                        "auth": "b3BlbnNoaWZ0LWVudGVycHJpc2U6RWdOVnVpc1FNSGNk"
+                }
+        }
+}
