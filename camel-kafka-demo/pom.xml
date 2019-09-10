@@ -47,6 +47,14 @@
     <groupId>org.apache.camel</groupId>
     <artifactId>camel-kafka-starter</artifactId>
   </dependency> 
+      <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-swagger-java-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-servlet-starter</artifactId>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -102,7 +110,8 @@
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-maven-plugin</artifactId>
-        <version>${fabric8.maven.plugin.version}</version>
+        <version>3.5.33.fuse-740029-redhat-00001</version>
+       <!--  <version>${fabric8.maven.plugin.version}</version>-->
         <executions>
           <execution>
             <goals>

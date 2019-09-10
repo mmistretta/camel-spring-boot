@@ -12,11 +12,11 @@
             <log id="route-log" message="consumer >>> ${body}"/>
         </route>
         <route id="producer-route">
-            <from id="route-timer" uri="timer://foo?period=1000"/>
+            <from id="route-timer" uri="timer://foo?period=10000"/>
+            <!--             <to id="_kafka1" uri="kafka:my-topic?securityProtocol=SSL&amp;sslTruststoreLocation=src/main/resources/keystore.jks&amp;sslTruststorePassword=password"/> -->
             <setBody id="route-setBody">
                 <simple>Hello World from camel-context.xml with ID ${id}</simple>
             </setBody>
-            <!--             <to id="_kafka1" uri="kafka:my-topic?securityProtocol=SSL&amp;sslTruststoreLocation=src/main/resources/keystore.jks&amp;sslTruststorePassword=password"/> -->
             <to id="_kafka1" uri="kafka:my-topic"/>
             <log id="route-log-producer" message="producer >>> ${body}"/>
         </route>
