@@ -49,7 +49,8 @@ public class SampleCamelRouter extends RouteBuilder {
    from("direct:goodbye")
         .routeId("log-goodbye")
         .log(LoggingLevel.INFO, "Goodbye World")
-        .transform().simple("Goodbye World");
+        .transform().simple("Goodbye World")
+        .to("kafka:my-topic");
     }
 
 }
