@@ -34,6 +34,9 @@ public class SampleCamelRouter extends RouteBuilder {
     public void configure() throws Exception {
         restConfiguration()
         	.component("servlet")
+        	.apiContextPath("api")
+        	.apiProperty("api.title", "Hello World")
+        	.apiProperty("api.version", "1.0.0")
     		.bindingMode(RestBindingMode.json);
     
         rest().get("/hello")
