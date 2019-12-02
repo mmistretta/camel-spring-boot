@@ -18,10 +18,7 @@ package com.sample.camel.route;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
-
-import com.sample.camel.model.User;
 
 /**
  * A simple Camel route that triggers from a timer and calls a bean and prints to system out.
@@ -34,7 +31,7 @@ public class SampleCamelRouter extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-    	restConfiguration()
+    restConfiguration()
         .component("servlet")
         .apiContextPath("api")
         .apiProperty("api.title", "Goodbye World")
