@@ -15,7 +15,9 @@ Then create or select your project using
 Next you need to edit the following line in the camel-context.xml file:
 
 `<property name="brokers" value="my-cluster-kafka-bootstrap.camel-kafka.svc:9092"/>`
+
 The format of this time should be the following
+
 ` <property name="brokers" value="<clusterName>-kafka-bootstrap.<projectName>.svc:9092"/>`
 
 Also, replace "my-topic" with your topic name in both the camel-context.xml and SampleCamelRouter files as necessary. 
