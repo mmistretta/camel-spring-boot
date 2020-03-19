@@ -1,4 +1,0 @@
-First                              Name
-Second                             Name
-First                              Word
-Second                             Word
