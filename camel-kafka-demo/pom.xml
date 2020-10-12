@@ -123,13 +123,6 @@
                         <groupId>io.fabric8</groupId>
                         <artifactId>fabric8-maven-plugin</artifactId>
                         <version>4.3.1</version>
-<!--                         <configuration> -->
-<!--                             <enricher> -->
-<!--                                 <excludes> -->
-<!--                                     <exclude>fmp-openshift-route</exclude> -->
-<!--                                 </excludes> -->
-<!--                             </enricher> -->
-<!--                         </configuration> -->
                         <executions>
                             <execution>
                                 <goals>
@@ -139,19 +132,6 @@
                             </execution>
                         </executions>
                     </plugin>
-<!--       <plugin> -->
-<!--         <groupId>io.fabric8</groupId> -->
-<!--         <artifactId>fabric8-maven-plugin</artifactId> -->
-<!--         <version>3.5.33.fuse-740029-redhat-00001</version> -->
-<!--         <executions> -->
-<!--           <execution> -->
-<!--             <goals> -->
-<!--               <goal>resource</goal> -->
-<!--               <goal>build</goal> -->
-<!--             </goals> -->
-<!--           </execution> -->
-<!--         </executions> -->
-<!--       </plugin> -->
     </plugins>
   </build>
 </project>
