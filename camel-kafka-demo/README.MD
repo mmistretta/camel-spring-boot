@@ -2,7 +2,7 @@
 
 Pre-Reqs For Running on OCP:
 
-1. Install AMQ Streams Operator
+1. Install AMQ Streams Operator on OCP 4+
 2. Create a Kafka Cluster using the operator (default name is my-cluster)
 3. Create a Kafka Topic using the operator (default name is my-topic)
 
